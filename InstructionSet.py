@@ -943,11 +943,11 @@ def c_var_del(main_circl: Circl):
     i = 0
     id_ = hash(to_operate1)
     for var in var_circl.whole_list():
-        if var.access(0) == id_:
-            var_circl.remove(i)
-            break
+        if var[0] == id_:
+            var_circl.pop(i)
+            return
         i = i+1
-        
+
 # MAIN INSTRUCTION SET
 # Each declared function above should correspond to a character (i.e. command)
 class Instruction:
