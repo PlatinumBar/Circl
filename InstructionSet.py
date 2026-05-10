@@ -954,6 +954,16 @@ def c_var_pull(main_circl: Circl):
             main_circl.append(i.access(1))
             break
 
+def c_var_del(main_circl: Circl):
+    to_operate1 = main_circl.pop()
+    i = 0
+    id_ = hash(to_operate1)
+    for var in var_circl.whole_list():
+        if var.access(0) == id_:
+            var_circl.remove(i)
+            break
+        i = i+1
+        
 # MAIN INSTRUCTION SET
 # Each declared function above should correspond to a character (i.e. command)
 class Instruction:
@@ -1059,5 +1069,6 @@ instruction_set: Dict[str, Instruction] = {
     "⊞": Instruction(c_append_program_counter),
     "ν": Instruction(c_count),
     "↦": Instruction(c_var_push),
-    "↤": Instruction(c_var_pull)
+    "↤": Instruction(c_var_pull),
+    "🜏": Instruction(c_var_del)
 }
