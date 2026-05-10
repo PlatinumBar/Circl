@@ -942,7 +942,7 @@ def c_var_del(main_circl: Circl):
     to_operate1 = main_circl.pop()
     i = 0
     id_ = hash(to_operate1)
-    for var in var_circl.whole_list():
+    for var in var_circl:
         if var[0] == id_:
             var_circl.pop(i)
             return

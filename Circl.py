@@ -113,6 +113,9 @@ class Circl(list['Circl|Point']):
     def __getitem__(self, index: int) -> Circl | Point:
         return super().__getitem__(index % len(self))
 
+    def __hash__(self):
+        return hash(str(self))
+
     def pop(self, index: int=-1) -> Circl | Point:
         return super().pop(index % len(self))
 
